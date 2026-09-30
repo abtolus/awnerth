@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://joystick/Joystick.gd" type="Script" id=1]
+[ext_resource path="res://joystick/big_circle.png" type="Texture" id=2]
+[ext_resource path="res://joystick/small_circle.png" type="Texture" id=3]
+
+[node name="Joystick2" type="TextureRect"]
+margin_left = 1450.0
+margin_top = 610.0
+margin_right = 1770.0
+margin_bottom = 930.0
+rect_min_size = Vector2( 320, 320 )
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 1 )
+radius = 160.0
+use_screen_rectangle = true
+screen_rectangle = Rect2( 1450, 610, 320, 320 )
+
+[node name="joystick_ring" type="TextureRect" parent="."]
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 3 )
+expand = true

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://boxes/box.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/tilesets/tilesheet_complete.png" type="Texture" id=2]
+[ext_resource path="res://boxes/telly/telly.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 1280, 1216, 64, 64 )
+
+[node name="Telly" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -26, -14, -26, 14, -19, 14, -19, 15, -18, 15, -18, 17, -17, 17, -17, 18, 18, 18, 18, 17, 19, 17, 19, 15, 20, 15, 20, 14, 27, 14, 27, -14, 17, -14, 17, -15, 15, -15, 15, -16, 14, -16, 14, -17, 10, -17, 10, -18, -10, -18, -10, -17, -14, -17, -14, -16, -15, -16, -15, -15, -17, -15, -17, -14 )

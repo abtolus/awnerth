@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://item_containers/item_container_menu.gd" type="Script" id=1]
+[ext_resource path="res://item_containers/item_container_slot.tscn" type="PackedScene" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[node name="ItemContainerMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+ItemContainerSlot = ExtResource( 2 )
+
+[node name="VBC" type="VBoxContainer" parent="."]
+margin_left = 985.0
+margin_top = 114.0
+margin_right = 1657.0
+margin_bottom = 966.0
+rect_min_size = Vector2( 672, 852 )
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="VBC"]
+margin_right = 672.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 672, 64 )
+custom_fonts/font = SubResource( 2 )
+valign = 2
+uppercase = true
+
+[node name="SC" type="ScrollContainer" parent="VBC"]
+margin_top = 72.0
+margin_right = 672.0
+margin_bottom = 744.0
+rect_min_size = Vector2( 672, 672 )
+
+[node name="GC" type="GridContainer" parent="VBC/SC"]
+margin_right = 672.0
+margin_bottom = 672.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 8
+custom_constants/hseparation = 8
+columns = 5

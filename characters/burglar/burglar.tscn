@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://characters/entity/entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/sprites/body/body1.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/sprites/head/head1.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/sprites/weapon/weapon7.png" type="Texture" id=4]
+[ext_resource path="res://characters/burglar/burglar.gd" type="Script" id=5]
+[ext_resource path="res://characters/burglar/burglar_ai.gd" type="Script" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 360.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 200.0
+
+[node name="Burglar" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+dropped_item_data = {
+"times": 3
+}
+statistics_data = {
+"damage": 3,
+"fire_rate": 0.5,
+"health": 40,
+"speed": 115
+}
+personal_data = {
+"bullet_lasting": 2.5,
+"experience": 4,
+"name": "Burglar"
+}
+
+[node name="Body" parent="Sprites" index="0"]
+texture = ExtResource( 2 )
+
+[node name="Weapon" parent="Sprites" index="1"]
+texture = ExtResource( 4 )
+
+[node name="Head" parent="Sprites" index="2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -6, 14.5, -6.00003, 9.49998, -7.00003, 9.49997, -7, 6.5, -9.00002, 6.49997, -9, 5.5, -10, 5.5, -10, 1.5, -11, 1.5, -11, -3.5, -10, -3.5, -10, -4.5, -8, -4.5, -8, -7.5, -7, -7.5, -7, -9.5, -6, -9.5, -6, -10.5, -4, -10.5, -4, -11.5, 4, -11.5, 4, -10.5, 6, -10.5, 6, -9.5, 7, -9.5, 7, -7.5, 8, -7.5, 8, -4.5, 10, -4.5, 10, -3.5, 11, -3.5, 11, 1.5, 9, 1.5, 9, 4.5, 8, 4.5, 8, 5.5, 7, 5.5, 7, 6.5, 1, 6.5, 0.999966, 9.5, -3.43899e-05, 9.5, -6.33815e-07, 14.5 )
+
+[node name="EntityAI" parent="." index="3"]
+script = ExtResource( 6 )
+entity_ai_data = {
+"patrol_state": {
+"distance": 32,
+"rotation_speed": 0.2,
+"speed": 0
+}
+}
+
+[node name="CollisionShape2D" parent="EntityAI/Sensor" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="EntityAI/Nearby" index="0"]
+shape = SubResource( 2 )
+
+[node name="RC" parent="Vision" index="0"]
+cast_to = Vector2( 480, 0 )
+
+[node name="RC2" type="RayCast2D" parent="Vision" index="1"]
+enabled = true
+cast_to = Vector2( 480, 50 )
+collision_mask = 21
+
+[node name="RC3" type="RayCast2D" parent="Vision" index="2"]
+enabled = true
+cast_to = Vector2( 480, -50 )
+collision_mask = 21
+
+[node name="RC4" type="RayCast2D" parent="Vision" index="3"]
+enabled = true
+cast_to = Vector2( 480, 100 )
+collision_mask = 21
+
+[node name="RC5" type="RayCast2D" parent="Vision" index="4"]
+enabled = true
+cast_to = Vector2( 480, -100 )
+collision_mask = 21
+
+[node name="RC6" type="RayCast2D" parent="Vision" index="5"]
+enabled = true
+cast_to = Vector2( 480, 150 )
+collision_mask = 21
+
+[node name="RC7" type="RayCast2D" parent="Vision" index="6"]
+enabled = true
+cast_to = Vector2( 480, -150 )
+collision_mask = 21
+
+[node name="FireRate" parent="Timers" index="0"]
+wait_time = 0.75

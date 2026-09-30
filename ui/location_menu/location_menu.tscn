@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/location_menu/location_menu_statistics.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/location_menu/virtual_map/virtual_map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/location_menu/location_menu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[node name="LocationMenu" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[node name="Control" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -720.0
+margin_top = -405.0
+margin_right = 720.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 1440, 810 )
+
+[node name="ColorRect" type="ColorRect" parent="Control/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
+
+[node name="HBC" type="HBoxContainer" parent="Control/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBC" type="VBoxContainer" parent="Control/Control/HBC"]
+margin_right = 1080.0
+margin_bottom = 810.0
+rect_min_size = Vector2( 1080, 0 )
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/Control/HBC/VBC"]
+margin_right = 1080.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+custom_fonts/font = SubResource( 2 )
+text = "The Virtual Map"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="UniversalMap" parent="Control/Control/HBC/VBC" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_right = 1080.0
+margin_bottom = 810.0
+
+[node name="VBC2" type="VBoxContainer" parent="Control/Control/HBC"]
+margin_left = 1084.0
+margin_right = 1440.0
+margin_bottom = 810.0
+rect_min_size = Vector2( 356, 810 )
+custom_constants/separation = 0
+
+[node name="LocationMenuStatistics" parent="Control/Control/HBC/VBC2" instance=ExtResource( 1 )]

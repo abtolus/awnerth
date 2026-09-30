@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/work_and_workship.mp3-0b4ff374aed27d2bcc1af146cfaae27b.mp3str"
+
+[deps]
+
+source_file="res://audio/theme/work_and_workship.mp3"
+dest_files=[ "res://.import/work_and_workship.mp3-0b4ff374aed27d2bcc1af146cfaae27b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

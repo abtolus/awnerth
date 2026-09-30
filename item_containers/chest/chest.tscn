@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://item_containers/item_container.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/tilesets/tilesheet_complete.png" type="Texture" id=2]
+[ext_resource path="res://item_containers/chest/chest.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 1664, 512, 64, 64 )
+
+[node name="Chest" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -32, 32, -32, 0, -31, 0, -31, -1, -29, -1, -29, -2, -25, -2, -25, -3, -20, -3, -20, -4, -10, -4, -10, -5, 7, -5, 7, -4, 17, -4, 17, -3, 23, -3, 23, -2, 28, -2, 28, -1, 31, -1, 31, 0, 32, 0, 32, 32 )

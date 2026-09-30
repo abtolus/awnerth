@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/anura.mp3-1f31bb5cd6ec3a38b3cc3db82af94f1d.mp3str"
+
+[deps]
+
+source_file="res://audio/theme/anura.mp3"
+dest_files=[ "res://.import/anura.mp3-1f31bb5cd6ec3a38b3cc3db82af94f1d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

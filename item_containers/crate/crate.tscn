@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://item_containers/item_container.tscn" type="PackedScene" id=1]
+[ext_resource path="res://item_containers/crate/crate.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/tilesets/tilesheet_complete.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 1664, 512, 64, 64 )
+
+[node name="Crate" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -32, 32, -32, -1, -16, -5, 13, -5, 32, -1, 32, 32 )

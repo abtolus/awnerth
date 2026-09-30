@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/virtual_map.mp3-1386e723781c5f68e7c653a85ec64116.mp3str"
+
+[deps]
+
+source_file="res://audio/theme/virtual_map.mp3"
+dest_files=[ "res://.import/virtual_map.mp3-1386e723781c5f68e7c653a85ec64116.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

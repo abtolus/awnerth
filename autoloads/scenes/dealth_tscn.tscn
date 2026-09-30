@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://autoloads/scenes/dealth_tscn.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[node name="DealthScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[node name="VBC" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -362.0
+margin_top = -160.0
+margin_right = 362.0
+margin_bottom = 160.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="VBC"]
+margin_right = 724.0
+margin_bottom = 55.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Eliminated"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="VBC"]
+margin_top = 79.0
+margin_right = 724.0
+margin_bottom = 232.0
+custom_fonts/font = SubResource( 6 )
+text = "Failure is not your fault, which is just a result given
+by learning, so get back up again wiser, smarter,
+and stronger than before. The world needs you, as
+the invaders will eliminate everybody else like you."
+align = 1
+
+[node name="GetBackUpAgain" type="Button" parent="VBC"]
+margin_top = 256.0
+margin_right = 724.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 724, 64 )
+custom_colors/font_color = Color( 0.803922, 0.803922, 0.803922, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Get back up again"
+
+[connection signal="button_up" from="VBC/GetBackUpAgain" to="." method="_on_Respawn_button_up"]

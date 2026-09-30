@@ -1,0 +1,189 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Main",
+"class": "Blockhouse",
+"language": "GDScript",
+"path": "res://locations/blockhouse/blockhouse.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Box",
+"language": "GDScript",
+"path": "res://boxes/box.gd"
+}, {
+"base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://projectiles/bullet/bullet.gd"
+}, {
+"base": "Resource",
+"class": "DataTres",
+"language": "GDScript",
+"path": "res://resources/data_tres.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://doors/doors.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://characters/entity/entity.gd"
+}, {
+"base": "Node2D",
+"class": "EntityAI",
+"language": "GDScript",
+"path": "res://characters/entity/entity_ai.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Furniture",
+"language": "GDScript",
+"path": "res://furnitures/furniture.gd"
+}, {
+"base": "DataTres",
+"class": "GlobalDataTres",
+"language": "GDScript",
+"path": "res://resources/global_data_tres.gd"
+}, {
+"base": "Main",
+"class": "Hostel",
+"language": "GDScript",
+"path": "res://locations/hostel/hostel.gd"
+}, {
+"base": "StaticBody2D",
+"class": "ItemContainer",
+"language": "GDScript",
+"path": "res://item_containers/item_container.gd"
+}, {
+"base": "Control",
+"class": "ItemContainerMenu",
+"language": "GDScript",
+"path": "res://item_containers/item_container_menu.gd"
+}, {
+"base": "TextureRect",
+"class": "ItemIcon",
+"language": "GDScript",
+"path": "res://ui/menu_container/item_slot/item_icon.gd"
+}, {
+"base": "ColorRect",
+"class": "ItemTexture",
+"language": "GDScript",
+"path": "res://ui/menu_container/item_texture/item_texture.gd"
+}, {
+"base": "Node2D",
+"class": "Main",
+"language": "GDScript",
+"path": "res://locations/main/main.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Manufacturer",
+"language": "GDScript",
+"path": "res://manufacturers/manufacture.gd"
+}, {
+"base": "Control",
+"class": "ManufacturerMenu",
+"language": "GDScript",
+"path": "res://manufacturers/manufacturer_menu.gd"
+}, {
+"base": "DataTres",
+"class": "MenuDataTres",
+"language": "GDScript",
+"path": "res://resources/menu_data_tres.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://characters/player/player.gd"
+}, {
+"base": "DataTres",
+"class": "PlayerDataTres",
+"language": "GDScript",
+"path": "res://resources/player_data_tres.gd"
+} ]
+_global_script_class_icons={
+"Blockhouse": "",
+"Box": "",
+"Bullet": "",
+"DataTres": "",
+"Door": "",
+"Entity": "",
+"EntityAI": "",
+"Furniture": "",
+"GlobalDataTres": "",
+"Hostel": "",
+"ItemContainer": "",
+"ItemContainerMenu": "",
+"ItemIcon": "",
+"ItemTexture": "",
+"Main": "",
+"Manufacturer": "",
+"ManufacturerMenu": "",
+"MenuDataTres": "",
+"Player": "",
+"PlayerDataTres": ""
+}
+
+[application]
+
+config/name="Awnerth"
+config/description="2D Godot game featuring a twin-stick control scheme, a complex inventory system and crafting mechanics."
+run/main_scene="res://locations/home/home.tscn"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/icon="res://assets/images/awnerth__logo_main.png"
+boot_splash/minimum_display_time=1
+
+[audio]
+
+default_bus_layout="res://audio/audio.tres"
+
+[autoload]
+
+GlobalTscn="*res://autoloads/global_tscn.tscn"
+GlobalData="*res://autoloads/global_data.gd"
+MenuData="*res://autoloads/menu_data.gd"
+PlayerData="*res://autoloads/player_data.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Entity"
+2d_physics/layer_3="Obstacle"
+2d_physics/layer_4="Item"
+2d_physics/layer_5="Interaction"
+2d_physics/layer_6="Projectile"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_environment="res://default_env.tres"

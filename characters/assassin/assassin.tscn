@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://characters/entity/entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/sprites/body/body2.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/sprites/head/head8.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/sprites/weapon/weapon1.png" type="Texture" id=4]
+[ext_resource path="res://characters/assassin/assassin_ai.gd" type="Script" id=5]
+[ext_resource path="res://characters/assassin/assassin.gd" type="Script" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 360.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 280.0
+
+[node name="Assassin" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+dropped_item_data = {
+"times": 5
+}
+statistics_data = {
+"damage": 4,
+"fire_rate": 0.3,
+"health": 80,
+"speed": 130
+}
+personal_data = {
+"bullet_lasting": 3.5,
+"experience": 8,
+"name": "Assassin"
+}
+
+[node name="Body" parent="Sprites" index="0"]
+texture = ExtResource( 2 )
+
+[node name="Weapon" parent="Sprites" index="1"]
+texture = ExtResource( 4 )
+
+[node name="Head" parent="Sprites" index="2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -6.00005, 14, -6.00004, 9.99998, -7.00004, 9.99997, -7.00002, 5.99997, -9.00002, 5.99997, -9.00002, 4.99997, -10, 4.99996, -10, 0.999964, -11, 0.99996, -11, -4.00004, -9.99999, -4.00004, -9.99998, -5.00004, -7.99998, -5.00003, -7.99996, -11.5, -4.99996, -11.5, -4.99996, -10.5, -4, -10.5, -4, -11.5, 4, -11.5, 4, -10.5, 5.00004, -10.5, 5.00004, -11.5, 8.00004, -11.5, 8, -7.5, 8.00002, -4.99997, 10, -4.99996, 10, -3.99996, 11, -3.99996, 11, 1.00004, 9, 1.00003, 8.99999, 4.00003, 7.99999, 4.00003, 7.99998, 5.00003, 6.99998, 5.00003, 6.99998, 6.00003, 0.999978, 6, 0.999964, 10, -3.61999e-05, 10, -5.06799e-05, 14 )
+
+[node name="EntityAI" parent="." index="3"]
+script = ExtResource( 5 )
+entity_ai_data = {
+"patrol_state": {
+"distance": 64,
+"rotation_speed": 0.25,
+"speed": 120
+}
+}
+
+[node name="CollisionShape2D" parent="EntityAI/Sensor" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="EntityAI/Nearby" index="0"]
+shape = SubResource( 2 )
+
+[node name="RC" parent="Vision" index="0"]
+cast_to = Vector2( 720, 0 )
+
+[node name="RC2" type="RayCast2D" parent="Vision" index="1"]
+enabled = true
+cast_to = Vector2( 720, 50 )
+collision_mask = 21
+
+[node name="RC3" type="RayCast2D" parent="Vision" index="2"]
+enabled = true
+cast_to = Vector2( 720, -50 )
+collision_mask = 21
+
+[node name="RC4" type="RayCast2D" parent="Vision" index="3"]
+enabled = true
+cast_to = Vector2( 720, 100 )
+collision_mask = 21
+
+[node name="RC5" type="RayCast2D" parent="Vision" index="4"]
+enabled = true
+cast_to = Vector2( 720, -100 )
+collision_mask = 21
+
+[node name="RC6" type="RayCast2D" parent="Vision" index="5"]
+enabled = true
+cast_to = Vector2( 720, 150 )
+collision_mask = 21
+
+[node name="RC7" type="RayCast2D" parent="Vision" index="6"]
+enabled = true
+cast_to = Vector2( 720, -150 )
+collision_mask = 21

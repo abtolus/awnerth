@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/menu_container/tooltip/tooltip.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = SubResource( 3 )
+
+[node name="Tooltip" type="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 672, 96 )
+color = Color( 0.25098, 0.25098, 0.25098, 1 )
+script = ExtResource( 1 )
+
+[node name="NPR" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBC" type="VBoxContainer" parent="NPR"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+
+[node name="MC" type="MarginContainer" parent="NPR/VBC"]
+margin_right = 672.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+
+[node name="ColorRect" type="ColorRect" parent="NPR/VBC/MC"]
+margin_right = 672.0
+margin_bottom = 48.0
+color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[node name="ItemName" type="Label" parent="NPR/VBC/MC"]
+margin_top = 10.0
+margin_right = 672.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 24 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HBC" type="HBoxContainer" parent="NPR/VBC"]
+margin_top = 48.0
+margin_right = 672.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 656, 48 )
+custom_constants/separation = 15
+
+[node name="C1" type="Control" parent="NPR/VBC/HBC"]
+margin_right = 214.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 214, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="NPR/VBC/HBC/C1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -10.0
+color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[node name="HBC" type="HBoxContainer" parent="NPR/VBC/HBC/C1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 214, 0 )
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="NPR/VBC/HBC/C1/HBC"]
+margin_left = 35.0
+margin_right = 67.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 32, 48 )
+expand = true
+stretch_mode = 6
+
+[node name="Statistics" type="Label" parent="NPR/VBC/HBC/C1/HBC"]
+margin_left = 75.0
+margin_right = 123.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="Difference" type="Label" parent="NPR/VBC/HBC/C1/HBC"]
+margin_left = 131.0
+margin_right = 179.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="C2" type="Control" parent="NPR/VBC/HBC"]
+margin_left = 229.0
+margin_right = 443.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 214, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="NPR/VBC/HBC/C2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -10.0
+color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[node name="HBC" type="HBoxContainer" parent="NPR/VBC/HBC/C2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 214, 0 )
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="NPR/VBC/HBC/C2/HBC"]
+margin_left = 35.0
+margin_right = 67.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 32, 48 )
+expand = true
+stretch_mode = 6
+
+[node name="Statistics" type="Label" parent="NPR/VBC/HBC/C2/HBC"]
+margin_left = 75.0
+margin_right = 123.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="Difference" type="Label" parent="NPR/VBC/HBC/C2/HBC"]
+margin_left = 131.0
+margin_right = 179.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="C3" type="Control" parent="NPR/VBC/HBC"]
+margin_left = 458.0
+margin_right = 672.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 214, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="NPR/VBC/HBC/C3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -10.0
+color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[node name="HBC" type="HBoxContainer" parent="NPR/VBC/HBC/C3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 214, 0 )
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="NPR/VBC/HBC/C3/HBC"]
+margin_left = 35.0
+margin_right = 67.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 32, 48 )
+expand = true
+stretch_mode = 6
+
+[node name="Statistics" type="Label" parent="NPR/VBC/HBC/C3/HBC"]
+margin_left = 75.0
+margin_right = 123.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+
+[node name="Difference" type="Label" parent="NPR/VBC/HBC/C3/HBC"]
+margin_left = 131.0
+margin_right = 179.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1

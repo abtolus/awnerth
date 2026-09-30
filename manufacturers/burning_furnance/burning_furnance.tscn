@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://manufacturers/manufacture.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/tilesets/tilesheet_complete.png" type="Texture" id=2]
+[ext_resource path="res://manufacturers/burning_furnance/burning_furnance.gd" type="Script" id=3]
+[ext_resource path="res://assets/icons/burning_furnance.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 1472, 704, 64, 64 )
+
+[node name="BurningFurnance" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+manufacturer_id = "burning_furnance_data"
+
+[node name="Base" parent="Sprites" index="0"]
+texture = SubResource( 1 )
+
+[node name="TextureRect" parent="Sprites" index="1"]
+texture = ExtResource( 4 )

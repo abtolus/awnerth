@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shamura.mp3-8adbc9de9bb7dca3eefab6619e528bf1.mp3str"
+
+[deps]
+
+source_file="res://audio/theme/shamura.mp3"
+dest_files=[ "res://.import/shamura.mp3-8adbc9de9bb7dca3eefab6619e528bf1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

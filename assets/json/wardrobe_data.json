@@ -1,0 +1,33 @@
+{
+    "head1": {"category": "Head"},
+    "head2": {"category": "Head"},
+    "head3": {"category": "Head"},
+    "head4": {"category": "Head"},
+    "head5": {"category": "Head"},
+    "head6": {"category": "Head"},
+    "head7": {"category": "Head"},
+    "head8": {"category": "Head"},
+    "head9": {"category": "Head"},
+    "head10": {"category": "Head"},
+    "head11": {"category": "Head"},
+    "head12": {"category": "Head"},
+    "head13": {"category": "Head"},
+    "head14": {"category": "Head"},
+
+    "weapon1": {"category": "Weapon"},
+    "weapon2": {"category": "Weapon"},
+    "weapon3": {"category": "Weapon"},
+    "weapon4": {"category": "Weapon"},
+    "weapon5": {"category": "Weapon"},
+    "weapon6": {"category": "Weapon"},
+    "weapon7": {"category": "Weapon"},
+    "weapon8": {"category": "Weapon"},
+    "weapon9": {"category": "Weapon"},
+    "weapon10": {"category": "Weapon"},
+    "weapon11": {"category": "Weapon"},
+    "weapon12": {"category": "Weapon"},
+
+    "body1": {"category": "Body"},
+    "body2": {"category": "Body"},
+    "body3": {"category": "Body"}
+}

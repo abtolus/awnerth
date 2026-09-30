@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/menu_container/crafting_menu/crafting_menu.gd" type="Script" id=1]
+[ext_resource path="res://ui/menu_container/crafting_menu/crafting_texture.tscn" type="PackedScene" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[node name="CraftingMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+ItemTexture = ExtResource( 2 )
+
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_left = 296.0
+margin_top = 176.0
+margin_right = 1424.0
+margin_bottom = 904.0
+rect_min_size = Vector2( 1128, 728 )
+custom_constants/separation = 100
+
+[node name="VBC" type="VBoxContainer" parent="HBC"]
+margin_right = 672.0
+margin_bottom = 728.0
+rect_min_size = Vector2( 672, 728 )
+custom_constants/separation = 8
+
+[node name="Title" type="Label" parent="HBC/VBC"]
+margin_right = 672.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+custom_fonts/font = SubResource( 2 )
+text = "Crafting Menu"
+valign = 1
+
+[node name="SC" type="ScrollContainer" parent="HBC/VBC"]
+margin_top = 56.0
+margin_right = 672.0
+margin_bottom = 728.0
+size_flags_vertical = 3
+
+[node name="GC" type="GridContainer" parent="HBC/VBC/SC"]
+margin_right = 672.0
+margin_bottom = 672.0
+rect_min_size = Vector2( 672, 0 )
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="HBC"]
+margin_left = 772.0
+margin_right = 1128.0
+margin_bottom = 728.0
+rect_min_size = Vector2( 356, 0 )
+
+[node name="MC" type="MarginContainer" parent="HBC/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 56.0
+rect_min_size = Vector2( 356, 672 )
+
+[node name="ColorRect" type="ColorRect" parent="HBC/Control/MC"]
+margin_right = 356.0
+margin_bottom = 672.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )

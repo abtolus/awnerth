@@ -1,0 +1,157 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://characters/entity/entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/sprites/body/body.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/sprites/weapon/weapon.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/sprites/head/head.png" type="Texture" id=4]
+[ext_resource path="res://characters/cyborg/cyborg.gd" type="Script" id=5]
+[ext_resource path="res://characters/cyborg/cyborg_ai.gd" type="Script" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 560.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 480.0
+
+[node name="Cyborg" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+dropped_item_data = {
+"times": 12
+}
+statistics_data = {
+"damage": 5,
+"fire_rate": 0.4,
+"health": 300,
+"speed": 105
+}
+personal_data = {
+"bullet_lasting": 5.0,
+"experience": 18,
+"name": "Cyborg"
+}
+
+[node name="Weapon2" type="Sprite" parent="Sprites" index="0"]
+position = Vector2( 0, 9.5 )
+texture = ExtResource( 3 )
+
+[node name="Body" parent="Sprites" index="1"]
+position = Vector2( 5.48363e-06, -1.5 )
+texture = ExtResource( 2 )
+
+[node name="Weapon" parent="Sprites" index="2"]
+position = Vector2( -3.48091e-05, 9.5 )
+
+[node name="Head" parent="Sprites" index="3"]
+position = Vector2( 5.42402e-06, -1.5 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( 5.99994, 17, -6.00006, 17, -6.00006, 16, -11.0001, 16, -11.0001, 26, -15.0001, 25.9999, -15.0001, 24.9999, -16.0001, 24.9999, -16.0001, 25.9999, -19.0001, 25.9999, -19.0001, 24.9999, -20.0001, 24.9999, -20.0001, 25.9999, -24.0001, 25.9999, -24.0001, 13.9999, -25.0001, 13.9999, -25, 11.9999, -24, 11.9999, -24, 10.9999, -25, 10.9999, -25, -9.04998e-05, -24, -8.68798e-05, -24, -2.00009, -23, -2.00008, -23, -3.00008, -22, -3.00008, -22, -4.00008, -20, -4.00007, -20, -5.00007, -17, -5.00006, -17, -6.00006, -16, -6.00006, -16, -7.00006, -14, -7.00005, -14, -8.00005, -12, -8.00004, -12, -10, -11, -10, -11, -12, -9.99996, -12, -9.99995, -13, -8.99995, -13, -8.99995, -14, -6.99995, -14, -6.99994, -16, -5.99994, -16, -5.99994, -17, -1.99994, -17, -1.99994, -16, -0.999942, -16, -0.999946, -15, 1.00005, -15, 1.00006, -16, 2.00006, -16, 2.00006, -17, 6.00006, -17, 6.00006, -16, 7.00006, -16, 7.00005, -14, 9.00005, -14, 9.00005, -13, 10, -13, 10, -12, 11, -12, 11, -9.99996, 12, -9.99996, 12, -7.99996, 14, -7.99995, 14, -6.99995, 16, -6.99994, 16, -5.99994, 17, -5.99994, 17, -4.99994, 20, -4.99993, 20, -3.99993, 22, -3.99992, 22, -2.99992, 23, -2.99992, 23, -1.99992, 24, -1.99991, 24, 8.68798e-05, 25, 9.04998e-05, 25, 11.0001, 24, 11.0001, 24, 12.0001, 25, 12.0001, 24.9999, 14.0001, 23.9999, 14.0001, 23.9999, 26.0001, 19.9999, 26.0001, 19.9999, 25.0001, 18.9999, 25.0001, 18.9999, 26.0001, 15.9999, 26.0001, 15.9999, 25.0001, 14.9999, 25.0001, 14.9999, 26.0001, 10.9999, 26, 10.9999, 16, 5.99994, 16 )
+
+[node name="Muzzle" parent="." index="2"]
+position = Vector2( 40, 0 )
+rotation = 1.5708
+
+[node name="EntityAI" parent="." index="3"]
+script = ExtResource( 6 )
+entity_ai_data = {
+"patrol_state": {
+"distance": 0,
+"rotation_speed": 0.15,
+"speed": 60
+}
+}
+
+[node name="CollisionShape2D" parent="EntityAI/Sensor" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="EntityAI/Nearby" index="0"]
+shape = SubResource( 2 )
+
+[node name="RC" parent="Vision" index="0"]
+cast_to = Vector2( 640, 0 )
+
+[node name="RC2" type="RayCast2D" parent="Vision" index="1"]
+enabled = true
+cast_to = Vector2( 640, 50 )
+collision_mask = 21
+
+[node name="RC3" type="RayCast2D" parent="Vision" index="2"]
+enabled = true
+cast_to = Vector2( 640, -50 )
+collision_mask = 21
+
+[node name="RC4" type="RayCast2D" parent="Vision" index="3"]
+enabled = true
+cast_to = Vector2( 640, 100 )
+collision_mask = 21
+
+[node name="RC5" type="RayCast2D" parent="Vision" index="4"]
+enabled = true
+cast_to = Vector2( 640, -100 )
+collision_mask = 21
+
+[node name="RC6" type="RayCast2D" parent="Vision" index="5"]
+enabled = true
+cast_to = Vector2( 640, 150 )
+collision_mask = 21
+
+[node name="RC7" type="RayCast2D" parent="Vision" index="6"]
+enabled = true
+cast_to = Vector2( 640, -150 )
+collision_mask = 21
+
+[node name="RC8" type="RayCast2D" parent="Vision" index="7"]
+enabled = true
+cast_to = Vector2( 640, 200 )
+collision_mask = 21
+
+[node name="RC9" type="RayCast2D" parent="Vision" index="8"]
+enabled = true
+cast_to = Vector2( 640, -200 )
+collision_mask = 21
+
+[node name="RC10" type="RayCast2D" parent="Vision" index="9"]
+enabled = true
+cast_to = Vector2( 640, 250 )
+collision_mask = 21
+
+[node name="RC11" type="RayCast2D" parent="Vision" index="10"]
+enabled = true
+cast_to = Vector2( 640, -250 )
+collision_mask = 21
+
+[node name="RC12" type="RayCast2D" parent="Vision" index="11"]
+enabled = true
+cast_to = Vector2( 640, 300 )
+collision_mask = 21
+
+[node name="RC13" type="RayCast2D" parent="Vision" index="12"]
+enabled = true
+cast_to = Vector2( 640, -300 )
+collision_mask = 21
+
+[node name="RC14" type="RayCast2D" parent="Vision" index="13"]
+enabled = true
+cast_to = Vector2( 640, 350 )
+collision_mask = 21
+
+[node name="RC15" type="RayCast2D" parent="Vision" index="14"]
+enabled = true
+cast_to = Vector2( 640, -350 )
+collision_mask = 21
+
+[node name="FireRate" parent="Timers" index="0"]
+wait_time = 0.5
+
+[node name="SplashPower" type="Timer" parent="Timers" index="3"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Reload" type="Timer" parent="Timers" index="5"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timers/SplashPower" to="." method="_on_SplashPower_timeout"]
+[connection signal="timeout" from="Timers/Cooldown" to="." method="_on_Cooldown_timeout"]
+[connection signal="timeout" from="Timers/Reload" to="EntityAI" method="_on_Reload_timeout"]

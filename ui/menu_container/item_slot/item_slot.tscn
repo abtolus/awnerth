@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/images/tilesets/04.png" type="Texture" id=1]
+[ext_resource path="res://ui/menu_container/item_slot/item_icon.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 5 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 297, 165, 32, 5 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 57, 165, 32, 5 )
+
+[node name="ItemSlot" type="ColorRect"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 2 )
+
+[node name="ItemQuantity" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 4 )
+align = 2
+
+[node name="ItemValue" type="TextureProgress" parent="."]
+visible = false
+self_modulate = Color( 0.866667, 0.866667, 0.866667, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -8.0
+margin_right = 64.0
+rect_min_size = Vector2( 128, 8 )
+texture_under = SubResource( 6 )
+texture_progress = SubResource( 7 )
+nine_patch_stretch = true
+
+[connection signal="gui_input" from="ItemIcon" to="ItemIcon" method="_on_ItemIcon_gui_input"]

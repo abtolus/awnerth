@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/images/sprites/body/body1.png" type="Texture" id=1]
+[ext_resource path="res://characters/entity/entity.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/sprites/head/head3.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/sprites/weapon/weapon8.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 360.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 240.0
+
+[node name="Raider" instance=ExtResource( 2 )]
+dropped_item_data = {
+"times": 4
+}
+statistics_data = {
+"damage": 2,
+"fire_rate": 0.25,
+"health": 60,
+"speed": 120
+}
+personal_data = {
+"bullet_lasting": 3.0,
+"experience": 6,
+"name": "Raider"
+}
+
+[node name="Body" parent="Sprites" index="0"]
+texture = ExtResource( 1 )
+
+[node name="Weapon" parent="Sprites" index="1"]
+texture = ExtResource( 4 )
+
+[node name="Head" parent="Sprites" index="2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -7.00005, 15, -7.00003, 8.99997, -8.00003, 8.99997, -8.00002, 5.99997, -9.00002, 5.99997, -9.00002, 4.99997, -10, 4.99996, -10, 0.999964, -11, 0.99996, -11, -4.00004, -9.99999, -4.00004, -9.99998, -5.00004, -7.99998, -5.00003, -8, -7.5, -7, -7.5, -7, -9.5, -6, -9.5, -6, -10.5, -4, -10.5, -3.99996, -11.5, 4, -11.5, 4, -10.5, 6, -10.5, 6, -9.5, 7, -9.5, 7, -7.5, 8, -7.5, 8.00002, -4.99997, 10, -4.99996, 10, -3.99996, 11, -3.99996, 11, 1.00004, 9, 1.00003, 8.99999, 4.00003, 7.99999, 4.00003, 7.99998, 5.00003, 6.99998, 5.00003, 6.99998, 6.00003, 0.999978, 6, 0.999967, 9, -3.25799e-05, 9, -5.42999e-05, 15 )
+
+[node name="EntityAI" parent="." index="3"]
+entity_ai_data = {
+"patrol_state": {
+"distance": 64,
+"rotation_speed": 0.2,
+"speed": 115
+}
+}
+
+[node name="CollisionShape2D" parent="EntityAI/Sensor" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="EntityAI/Nearby" index="0"]
+shape = SubResource( 2 )
+
+[node name="RC" parent="Vision" index="0"]
+cast_to = Vector2( 600, 0 )
+
+[node name="RC2" type="RayCast2D" parent="Vision" index="1"]
+enabled = true
+cast_to = Vector2( 600, 50 )
+collision_mask = 21
+
+[node name="RC3" type="RayCast2D" parent="Vision" index="2"]
+enabled = true
+cast_to = Vector2( 600, -50 )
+collision_mask = 21
+
+[node name="RC4" type="RayCast2D" parent="Vision" index="3"]
+enabled = true
+cast_to = Vector2( 600, 100 )
+collision_mask = 21
+
+[node name="RC5" type="RayCast2D" parent="Vision" index="4"]
+enabled = true
+cast_to = Vector2( 600, -100 )
+collision_mask = 21
+
+[node name="RC6" type="RayCast2D" parent="Vision" index="5"]
+enabled = true
+cast_to = Vector2( 600, 150 )
+collision_mask = 21
+
+[node name="RC7" type="RayCast2D" parent="Vision" index="6"]
+enabled = true
+cast_to = Vector2( 600, -150 )
+collision_mask = 21

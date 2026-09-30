@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://doors/doors.tscn" type="PackedScene" id=1]
+[ext_resource path="res://doors/one_way_door/one_way_door.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/tilesets/tilesheet_complete.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 1088, 64, 64 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -32, -32, -32, -14, 32, -14, 32, -32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 8 )
+
+[node name="OneWayDoor" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, 6 )
+texture = SubResource( 2 )
+
+[node name="LightOccluder2D" parent="." index="1"]
+position = Vector2( 0, 29 )
+occluder = SubResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="2"]
+position = Vector2( 0.5, 7 )
+polygon = PoolVector2Array( -32.5, 8, -32.5, -10, 31.5, -10, 31.5, 8 )
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 0, -11 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
